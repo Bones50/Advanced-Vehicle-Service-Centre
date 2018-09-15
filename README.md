@@ -14,7 +14,8 @@ Fetaures:
 Install Instructions:
 1. Copy the Init.sqf file into you mission file root directory or merge it with your existing one.
 2. Merge the items in config.cpp into you mission config.cpp file for car and air classes (and tanks if you have them).
-3. Copy the Custom folder into your mission file (note the filepath must be Custom\vehicleManagementSystem).
-4. Edit the vmsConfig file to suite your server.
-5. Profit!
+3. Add the line in the description.ext file to the bottom of your mission description.ext
+4. Copy the Custom folder into your mission file (note the filepath must be Custom\vehicleManagementSystem).
+5. Edit the vmsConfig file to suite your server.
+6. Profit!
 
