@@ -27,19 +27,6 @@ if (_vmsActive) then
 	];
 };
 } forEach vmsservicePoints;
-/*
-if (["locCall", _pos] call Bones_fnc_vmsChecks) then
-{
-	if (vmsSpeedCheck == 1) then
-	{
-	player addAction ["Test Vehicle Service Point", "Custom\vehicleManagementSystem\GUI\Bones_fnc_showServicePointDialogue.sqf",objectParent player,1.5,false,true,"","count (nearestObjects [(getPos player), buildingObjects ,vmsRange]) > 0 and (speed (objectParent player) < 1) and (speed (objectParent player) > -1) and enableServicePoint == 1 and ['playerCall', getPos player] Call Bones_fnc_vmsChecks and player != vehicle player"];
-	}
-	else
-	{
-	player addAction ["Test Vehicle Service Point", "Custom\vehicleManagementSystem\GUI\Bones_fnc_showServicePointDialogue.sqf",objectParent player,1.5,false,true,"","count (nearestObjects [(getPos player), buildingObjects ,vmsRange]) > 0 and enableServicePoint == 1 and ['playerCall', getPos player] Call Bones_fnc_vmsChecks and player != vehicle player"];
-	};
-};
-*/
 {
 _pos = getPos _x;
 _vmsActive = ["locCall", _pos] call Bones_fnc_vmsChecks;
