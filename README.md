@@ -19,3 +19,33 @@ Install Instructions:
 5. Edit the vmsConfig file to suite your server.
 6. Profit!
 
+IF USING INFISTAR...
+If you have UDW set to true you will need to add "9123" to the "allowedIDDs[]" array. e.g.:
+
+/* Use IDD White-List ? */ UDW = "true";
+/* allowedIDDs: Insert IDDs here to prevent them from being closed! */
+allowedIDDs[] =
+{
+	/* default idds */
+	-1,0,4,5,6,8,12,15,18,24,49,54,55,70,72,101,160,174,177,999,131,63,602,301,
+
+	/* exile idds */
+	24001,24002,20023,24005,24004,24010,24025,20021,20017,24012,24027,
+	20019,20016,24007,20024,20018,24008,24011,24015,24000,24006,24014,
+	20020,24026,4002,4000,4001,4003,1500,
+
+	24033,24030,24029,24028,24031,24034,
+
+	4004,21000,	// Bounty system and MarXet
+	8457,	// http://www.exilemod.com/topic/9040-xm8-apps/
+	65431,	// r3f menu fix
+	6666,	// Paintshop
+	0711,	// Advanced Banking
+	0720,24036,	// Virtual Garage
+	5501,5502,5503,5504,5505,5506,5507,	// BRAma Cookbook
+	-1339,-1340,	// custom infiSTAR dialogs (some editor & a private chat menu)
+  9123,   // Bones Service Point Script
+
+	/* main idd - never delete it */
+	46
+};
