@@ -35,7 +35,7 @@ _weapArray = [];
 _vehicleMags = _vehicle call Bones_fnc_getVehicleLoadout;
 
 {
-	private ["_turretPath", "_bulletCost", "_maxMag", "_menuItem", "_magClass", "_displayName", "_ammoCount", "_magMaxAmmoCount", "_maxBullets", "_numMagsToLoad", "_currentMags", "_loadedMagCount", "_currentMagToLoad", "_currentMagCost", "_menuItemAndDetails"];
+	private ["_cost","_turretPath", "_bulletCost", "_maxMag", "_menuItem", "_magClass", "_displayName", "_ammoCount", "_magMaxAmmoCount", "_maxBullets", "_numMagsToLoad", "_currentMags", "_loadedMagCount", "_currentMagToLoad", "_currentMagCost", "_menuItemAndDetails"];
 	_turretPath = _x select 0;
 	_bulletCost = 0;
 	_cost = 0;
