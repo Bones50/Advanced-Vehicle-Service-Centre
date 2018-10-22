@@ -216,6 +216,9 @@ if (_action == "refuel") then
 	_refuelDisplay = format["%1 Poptabs", _refuelCost2];
 	_reFuelButton = (findDisplay 9123 displayCtrl 1010);
 	_reFuelButton ctrlSetText _refuelDisplay;
+
+	_poptabs = (findDisplay 9123 displayCtrl 1001);
+	_poptabs ctrlSetText (format ["%1 poptabs", _exilew - _refuelCost]);
 	
 	["SuccessTitleOnly", format ["Refuelling Complete, Total Cost was %1 Poptabs", _refuelCost]] call ExileClient_gui_toaster_addTemplateToast;
 };
