@@ -31,7 +31,7 @@ class Bones_Service_Point
 			w = safeZoneW * 0.431875;
 			h = safeZoneH * 0.57222223;
 			style = 64;
-			text = "Service Centre | AeoniumGaming";
+			text = "Bones VMS - Service Centre";
 			colorBackground[] = {0,0,0,1};
 			colorText[] = {1,1,1,1};
 			font = "PuristaSemiBold";
