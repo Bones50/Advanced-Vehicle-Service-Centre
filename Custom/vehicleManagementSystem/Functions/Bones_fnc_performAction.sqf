@@ -18,16 +18,21 @@ _temp = _this select 0;
 _actionData = call compile _temp;
 _action = _actionData select 0;
 
+_vl = local _vehicle;
+if !(_vl) exitWith {["ErrorTitleOnly", ["The driver must do this!"]] call ExileClient_gui_toaster_addTemplateToast;};
+_vne = (count (crew vehicle cursorTarget)) == 0;
+if !(_vne) exitWith {["ErrorTitleOnly", ["You can't re-arm with players inside your Vehicle!"]] call ExileClient_gui_toaster_addTemplateToast;};
+
 if (_action == "rearmall") then
 {
 	private ["_cost"];
 	_cost = 0;
 	_cost = [] call Bones_fnc_getReloadCost;
 	_exilew = player getVariable ["ExileMoney", 0];
+	
 	if (_exilew <_cost) exitWith {["ErrorTitleOnly", ["You don't have enough money!"]] call ExileClient_gui_toaster_addTemplateToast;};
 	
-	["Reload.ogg", _Vehicle, 30] call Bones_fnc_playSounds;
-	
+	["Reload.ogg", _vehicle, 30] call Bones_fnc_playSounds;
 	_vehicle setVehicleAmmo 1;
 	if(_cost > 0 && isTradeEnabled)then
 	{
@@ -53,7 +58,7 @@ if (_action == "repairall") then
 	_exilew = player getVariable ["ExileMoney", 0];
 	if (_exilew <_cost) exitWith {["ErrorTitleOnly", ["You don't have enough money!"]] call ExileClient_gui_toaster_addTemplateToast;};
 	
-	["Repair.ogg", _Vehicle, 30] call Bones_fnc_playSounds;
+	["Repair.ogg", _vehicle, 30] call Bones_fnc_playSounds;
 
 	_vehicle setdamage 0;
 	if(_cost > 0 && isTradeEnabled)then
@@ -71,7 +76,8 @@ if (_action == "repairall") then
 	_repairCost = (findDisplay 9123 displayCtrl 1008);
 	_repairCost ctrlSetText (format ["%1 Poptabs", _repairValueDisplay]);
 	
-	["SuccessTitleOnly", format ["Repair of All Items Complete, Total Cost was %1 Poptabs", _cost]] call ExileClient_gui_toaster_addTemplateToast;
+	_rcost = round _cost;
+	["SuccessTitleOnly", format ["Total Repair Complete, cost was %1 Poptabs", _rcost]] call ExileClient_gui_toaster_addTemplateToast;
 };
 
 if (_action == "Repair") then
@@ -83,7 +89,7 @@ if (_action == "Repair") then
 	_exilew = player getVariable ["ExileMoney", 0];
 	if (_exilew <_price) exitWith {["ErrorTitleOnly", ["You don't have enough money!"]] call ExileClient_gui_toaster_addTemplateToast;};
 	
-	["Repair.ogg", _Vehicle, 30] call Bones_fnc_playSounds;
+	["Repair.ogg", _vehicle, 30] call Bones_fnc_playSounds;
 	
 	{_vehicle setHitPointDamage [_x, 0]}forEach _items;
 	
@@ -104,8 +110,13 @@ if (_action == "Repair") then
 	_repairAll = (findDisplay 9123 displayCtrl 1604);
 	_repairAll ctrlenable false;
 	};
+	
+	_action = _actionData select 0;
+	if !(_action == "repairall") then
+	{
+		["SuccessTitleOnly", format ["Part repaired, cost was %1 Poptabs", _price]] call ExileClient_gui_toaster_addTemplateToast;
+	};
 
-	["SuccessTitleOnly", format ["Repair of item complete, Total Cost was %1 Poptabs", _price]] call ExileClient_gui_toaster_addTemplateToast;
 };
 
 if (_action == "Reload") then
@@ -116,11 +127,14 @@ if (_action == "Reload") then
 	_turretPath = _actionData select 3;
 	_bulletAmount = _actionData select 4;
 	_pylonIndex = _actionData select 5;
+	
+	_vtl = _vehicle turretLocal [0];
+	if !(_vtl) exitWith {["ErrorTitleOnly", ["Turret not yet ready! Get in as a gunner and try again!"]] call ExileClient_gui_toaster_addTemplateToast;};
 
 	_exilew = player getVariable ["ExileMoney", 0];
 	if (_exilew <_price) exitWith {["ErrorTitleOnly", ["You don't have enough money!"]] call ExileClient_gui_toaster_addTemplateToast;};
 	
-	["Reload.ogg", _Vehicle, 30] call Bones_fnc_playSounds;
+	["Reload.ogg", _vehicle, 30] call Bones_fnc_playSounds;
 	
 	if (["120mm",_items] call BIS_fnc_inString || ["125mm",_items] call BIS_fnc_inString || ["105mm",_items] call BIS_fnc_inString || ["L30A1_Cannon",_items] call BIS_fnc_inString || ["2A46",_items] call BIS_fnc_inString || ["100mm",_items] call BIS_fnc_inString) then
 	{

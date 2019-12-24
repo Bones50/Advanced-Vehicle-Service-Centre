@@ -232,38 +232,6 @@ class Bones_Service_Point
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
 			
 		};
-		class vms_reloadAllButton
-		{
-			type = 1;
-			idc = 1605;
-			x = safeZoneX + safeZoneW * 0.563125;
-			y = safeZoneY + safeZoneH * 0.57333334;
-			w = safeZoneW * 0.145625;
-			h = safeZoneH * 0.03666667;
-			style = 0+2;
-			text = "Reload All";
-			borderSize = 0;
-			colorBackground[] = {0.949,0.949,0.949,1};
-			colorBackgroundActive[] = {0.302,0.502,0.302,1};
-			colorBackgroundDisabled[] = {0.502,0.502,0.502,1};
-			colorBorder[] = {0,0,0,0};
-			colorDisabled[] = {0.6,0.6,0.6,1};
-			colorFocused[] = {0.502,0.502,0.502,1};
-			colorShadow[] = {0.4,0.4,0.4,1};
-			colorText[] = {0,0,0,1};
-			font = "PuristaMedium";
-			offsetPressedX = 0.01;
-			offsetPressedY = 0.01;
-			offsetX = 0;
-			offsetY = 0;
-			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
-			soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1.0};
-			soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1.0};
-			soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1.0};
-			soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1.0};
-			onButtonClick = "['[''rearmall'']'] spawn bones_fnc_performAction";
-			
-		};
 		class vms_refuelButton
 		{
 			type = 1;
@@ -369,7 +337,7 @@ class Bones_Service_Point
 			w = safeZoneW * 0.145625;
 			h = safeZoneH * 0.02777778;
 			style = 0;
-			text = "Reload Cost:";
+			text = "Total Reload Cost:";
 			colorBackground[] = {0.6627,0.3294,0.8941,0};
 			colorText[] = {1,1,1,1};
 			font = "PuristaMedium";
@@ -401,7 +369,7 @@ class Bones_Service_Point
 			w = safeZoneW * 0.145625;
 			h = safeZoneH * 0.02777778;
 			style = 0;
-			text = "Repair Cost:";
+			text = "Total Repair Cost:";
 			colorBackground[] = {0.6627,0.3294,0.8941,0};
 			colorText[] = {1,1,1,1};
 			font = "PuristaMedium";

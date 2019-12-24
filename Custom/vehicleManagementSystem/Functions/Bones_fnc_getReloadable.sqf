@@ -83,7 +83,7 @@ _vehicleMags = _vehicle call Bones_fnc_getVehicleLoadout;
 			_currentMagCost = _currentMagToLoad * _bulletCost;
 			_cost = _totalMagCost + _currentMagCost;
 		};
-		_menuItem = format ["%1 - %2 %3", _displayName, _currentMagCost, vmsCostType];
+		_menuItem = format ["%1 - reload", _displayName];
 		_reArmData pushback _action;
 		_reArmData pushback _magClass;
 		_reArmData pushback _cost;
